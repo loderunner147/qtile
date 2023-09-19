@@ -82,8 +82,8 @@ for i in groups:
 
 layout_theme = {"border_width": 3,
                 "margin": 5,
-                "border_focus": "#785704",
-                "border_normal": "#1D2330"
+                "border_focus": "#d79921",
+                "border_normal": "#282828"
                 }
 
 
@@ -95,16 +95,16 @@ layouts = [
 
 # COLORS FOR THE BAR
 def init_colors():
-    return [["#e3e3e3", "#e3e3e3"], # color 0
-            ["#121212", "#121212"], # color 1
-            ["#6e0000", "#6e0000"], # color 2
-            ["#6e3000", "#6e3000"], # color 3
-            ["#6e5b00", "#6e5b00"], # color 4
-            ["#306e00", "#306e00"], # color 5
-            ["#004f6e", "#004f6e"], # color 6
-            ["#00096e", "#00096e"], # color 7
-            ["#52006e", "#52006e"], # color 8
-            ["#876603", "#876603"]] # color 9
+    return [["#ebdbb2", "#ebdbb2"], # color 0
+            ["#282828", "#282828"], # color 1
+            ["#cc241d", "#cc241d"], # color 2
+            ["#d65d0e", "#d65d0e"], # color 3
+            ["#d79921", "#d79921"], # color 4
+            ["#98971a", "#98971a"], # color 5
+            ["#83a598", "#83a598"], # color 6
+            ["#458588", "#458588"], # color 7
+            ["#b16286", "#b16286"], # color 8
+            ["#a89984", "#a89984"]] # color 9
 
 
 colors = init_colors()
@@ -126,7 +126,7 @@ screens = [
                         padding = 0,
                         scale = 0.7,
                         foreground = colors[0],
-                        background = colors[9],
+                        background = colors[4],
                         ),
                 widget.Sep(
                         linewidth = 1,
@@ -143,12 +143,12 @@ screens = [
                         borderwidth = 0,
                         disable_drag = True,
                         focused = colors [0],
-                        active = colors[3],
+                        active = colors[4],
                         inactive = colors[9],
                         rounded = False,
                         highlight_method = "text",
                         this_current_screen_border = colors[0],
-                        foreground = colors[9],
+                        foreground = colors[4],
                         background = colors[1]
                         ),
                 widget.Sep(
@@ -160,7 +160,7 @@ screens = [
                 widget.WindowName(font="JetbrainsMono Nerd Font Bold",
                         fontsize = 15,
                         foreground = colors[1],
-                        background = colors[9],
+                        background = colors[4],
                         ),
                 widget.Sep(
                         linewidth = 1,
@@ -168,12 +168,6 @@ screens = [
                         foreground = colors[1],
                         background = colors[1]
                         ),        
-                widget.Chord(
-                    chords_colors={
-                        "launch": ("#F2F2F2", "#F2F2F2"),
-                    },
-                    name_transform=lambda name: name.upper(),
-                ),
                 #widget.StatusNotifier(),
                 #widget.Systray(),
                 #widget.DF(),
@@ -184,7 +178,7 @@ screens = [
                 #widget.Battery(),
                 widget.Clock(font="JetbrainsMono Nerd Font Bold",
                         fontsize = 15,
-                        foreground = colors[9],
+                        foreground = colors[4],
                         background = colors[1],
                         format='%d/%m/%y %H:%M'
                         ),
