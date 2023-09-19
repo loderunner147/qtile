@@ -82,7 +82,7 @@ for i in groups:
 
 layout_theme = {"border_width": 3,
                 "margin": 5,
-                "border_focus": "#d79921",
+                "border_focus": "#a89984",
                 "border_normal": "#282828"
                 }
 
@@ -93,7 +93,7 @@ layouts = [
     layout.Max(),
 ]
 
-# COLORS FOR THE BAR
+# Colors For The Bar
 def init_colors():
     return [["#ebdbb2", "#ebdbb2"], # color 0
             ["#282828", "#282828"], # color 1
@@ -120,13 +120,13 @@ extension_defaults = widget_defaults.copy()
 # Bar
 screens = [
     Screen(
-        top=bar.Bar(
+        bottom=bar.Bar(
             [
                 widget.CurrentLayoutIcon(
                         padding = 0,
                         scale = 0.7,
                         foreground = colors[0],
-                        background = colors[4],
+                        background = colors[9],
                         ),
                 widget.Sep(
                         linewidth = 1,
@@ -160,7 +160,7 @@ screens = [
                 widget.WindowName(font="JetbrainsMono Nerd Font Bold",
                         fontsize = 15,
                         foreground = colors[1],
-                        background = colors[4],
+                        background = colors[9],
                         ),
                 widget.Sep(
                         linewidth = 1,
@@ -178,9 +178,9 @@ screens = [
                 #widget.Battery(),
                 widget.Clock(font="JetbrainsMono Nerd Font Bold",
                         fontsize = 15,
-                        foreground = colors[4],
+                        foreground = colors[9],
                         background = colors[1],
-                        format='%d/%m/%y %H:%M'
+                        format='%d/%m/%y %H:%M:%S'
                         ),
                 widget.Sep(
                         linewidth = 1,
