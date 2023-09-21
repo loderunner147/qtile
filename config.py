@@ -4,6 +4,9 @@ from libqtile import bar, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
+from qtile_extras import widget
+from qtile_extras.widget.decorations import PowerLineDecoration
+
 
 mod = "mod4"
 terminal = "alacritty"
@@ -18,6 +21,57 @@ from libqtile import hook
 def autostart():
     home = os.path.expanduser('~/.config/qtile/autostart.sh')
     subprocess.Popen([home])
+
+# Decoration
+
+arrow_powerlineRight = {
+    "decorations": [
+        PowerLineDecoration(
+            path="arrow_right",
+            size=11,
+        )
+    ]
+}
+arrow_powerlineLeft = {
+    "decorations": [
+        PowerLineDecoration(
+            path="arrow_left",
+            size=11,
+        )
+    ]
+}
+rounded_powerlineRight = {
+    "decorations": [
+        PowerLineDecoration(
+            path="rounded_right",
+            size=11,
+        )
+    ]
+}
+rounded_powerlineLeft = {
+    "decorations": [
+        PowerLineDecoration(
+            path="rouded_left",
+            size=11,
+        )
+    ]
+}
+slash_powerlineRight = {
+    "decorations": [
+        PowerLineDecoration(
+            path="forward_slash",
+            size=11,
+        )
+    ]
+}
+slash_powerlineLeft = {
+    "decorations": [
+        PowerLineDecoration(
+            path="back_slash",
+            size=11,
+        )
+    ]
+}
 
 
 keys = [
@@ -109,6 +163,15 @@ def init_colors():
 
 colors = init_colors()
 
+# Mouse callback functions
+def launch_menu():
+    qtile.cmd_spawn("rofi -show drun")
+
+
+def open_rofi():
+    qtile.cmd_spawn("rofi -show drun")
+
+
 # Widgets
 widget_defaults = dict(
     font="JetBrainsMono Nerd Font",
@@ -127,13 +190,8 @@ screens = [
                         scale = 0.7,
                         foreground = colors[0],
                         background = colors[9],
+                        **arrow_powerlineLeft,
                         ),
-                widget.Sep(
-                        linewidth = 1,
-                        padding = 10,
-                        foreground = colors[1],
-                        background = colors[1]
-                        ),        
                 widget.GroupBox(font="JetbrainsMono Nerd Font Bold",
                         fontsize = 15,
                         margin_y = 2,
@@ -149,25 +207,15 @@ screens = [
                         highlight_method = "text",
                         this_current_screen_border = colors[0],
                         foreground = colors[4],
-                        background = colors[1]
-                        ),
-                widget.Sep(
-                        linewidth = 1,
-                        padding = 10,
-                        foreground = colors[1],
-                        background = colors[1]
+                        background = colors[1],
+                        **arrow_powerlineLeft,
                         ),
                 widget.WindowName(font="JetbrainsMono Nerd Font Bold",
                         fontsize = 15,
                         foreground = colors[1],
                         background = colors[9],
+                        **arrow_powerlineRight,
                         ),
-                widget.Sep(
-                        linewidth = 1,
-                        padding = 10,
-                        foreground = colors[1],
-                        background = colors[1]
-                        ),        
                 #widget.StatusNotifier(),
                 #widget.Systray(),
                 #widget.DF(),
@@ -180,7 +228,7 @@ screens = [
                         fontsize = 15,
                         foreground = colors[9],
                         background = colors[1],
-                        format='%d/%m/%y %H:%M:%S'
+                        format='󰥔 %d/%m/%y %H:%M:%S',
                         ),
                 widget.Sep(
                         linewidth = 1,
@@ -237,3 +285,4 @@ wl_input_rules = None
 
 # WM Name
 wmname = "LG3D"
+
